@@ -5,7 +5,8 @@ const Todo = () => {
     const [list, setList] = useState([]);
     const [item, setItem] = useState("");
 
-    const addToList = () => {
+    const addToList = (e) => {
+        e.preventDefault();
         list.push(item);
         setList([...list]);
     }
@@ -16,8 +17,9 @@ const Todo = () => {
     }
     return (
         <div>
+            <form action="" onSubmit={addToList}>
             <input onChange={(event) => setItem(event.target.value)} type="text" name="" id="" placeholder="Enter Todo Name" />  
-            <button onClick={addToList}>Add item</button>
+            <button type="submit">Add item</button>
             <table>
                 <tbody>
                     {
@@ -34,6 +36,7 @@ const Todo = () => {
                     }
                 </tbody>
             </table>
+            </form>
         </div>
     );
 };
